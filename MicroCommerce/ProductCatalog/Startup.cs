@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 using Shed.CoreKit.WebApi;
 using System;
 using System.Collections.Generic;
@@ -30,8 +29,10 @@ namespace ProductCatalog
         {
             services.AddCorrelationToken();
             services.AddCors();
-            // регистрируем реализацию как зависимость в контейнере IoC
+            
+            // Calling microservice
             services.AddTransient<IProductCatalog, ProductCatalogImpl>();
+            
             services.AddLogging(builder => builder.AddConsole());
         }
 
@@ -49,7 +50,7 @@ namespace ProductCatalog
                     .AllowAnyHeader();
             });
 
-            // привязываем реализацию к конечной точке
+            // Calling microservice
             app.UseWebApiEndpoint<IProductCatalog>();
         }
     }
