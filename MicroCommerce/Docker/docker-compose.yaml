@@ -1,0 +1,11 @@
+version: "1.0.0.0"
+
+services: 
+  product-catalog:
+    container_name: ProductCatalog
+    build: 
+      context: ../
+      dockerfile: Docker/ProductCatalog/Dockerfile
+    image: "product-catalog"
+    ports:
+      - "3000:80"
