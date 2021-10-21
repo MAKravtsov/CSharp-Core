@@ -6,7 +6,8 @@ namespace TestCoreConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var a = Console.ReadLine();
+            Console.WriteLine($"Hello {a}");
         }
     }
 }
