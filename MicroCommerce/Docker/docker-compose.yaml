@@ -1,7 +1,7 @@
 version: "1.0.0.0"
 
 services: 
-  product-catalog:
+  ProductCatalog:
     container_name: ProductCatalog
     build: 
       context: ../
@@ -9,3 +9,13 @@ services:
     image: "product-catalog"
     ports:
       - "3000:80"
+  ShoppingCart:
+    container_name: ShoppingCart
+    build:
+      context: ../
+      dockerfile: Docker/ShoppingCart/Dockerfile
+    image: "shopping-cart"
+    ports:
+      - "3001:80"
+    links:
+      - product-catalog
