@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ProductCatalog
 {
@@ -32,7 +33,8 @@ namespace ProductCatalog
             
             // Calling microservice
             services.AddTransient<IProductCatalog, ProductCatalogImpl>();
-            
+            services.AddTransient<Redis.Repositories.Interfaces.IProductRepository, Redis.Repositories.Classes.ProductRepository>();
+
             services.AddLogging(builder => builder.AddConsole());
         }
 
@@ -50,6 +52,11 @@ namespace ProductCatalog
                     .AllowAnyHeader();
             });
 
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings {
+                Formatting = Formatting.Indented,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            };
+            
             // Calling microservice
             app.UseWebApiEndpoint<IProductCatalog>();
         }

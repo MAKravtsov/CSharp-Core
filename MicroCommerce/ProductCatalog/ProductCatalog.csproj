@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
     <ProjectReference Include="..\MiddleWare\MiddleWare.csproj" />
+    <ProjectReference Include="..\Redis\Redis.csproj" />
   </ItemGroup>
 
 </Project>

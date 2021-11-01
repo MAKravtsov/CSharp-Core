@@ -4,25 +4,29 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Redis.Repositories.Interfaces;
 
 namespace ProductCatalog
 {
     public class ProductCatalogImpl : IProductCatalog
     {
-        private readonly Product[] _products = {
-            new() { Id = new Guid("6BF3A1CE-1239-4528-8924-A56FF6527595"), Name = "T-shirt" },
-            new() { Id = new Guid("6BF3A1CE-1239-4528-8924-A56FF6527596"), Name = "Hoodie" },
-            new() { Id = new Guid("6BF3A1CE-1239-4528-8924-A56FF6527597"), Name = "Trousers" }
-        };
+        private readonly IProductRepository _productRepository;
+        public ProductCatalogImpl(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
 
         public IEnumerable<Product> Get()
         {
-            return _products;
+            var products = _productRepository.Get().Result;
+            return products;
         }
 
         public Product Get(Guid productId)
         {
-            return _products.FirstOrDefault(p => p.Id == productId);
+            var products = _productRepository.GetById(productId).Result;
+            return products;
         }
     }
 }

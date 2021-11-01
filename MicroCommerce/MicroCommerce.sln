@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductCatalog", "ProductCa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart", "ShoppingCart\ShoppingCart.csproj", "{469DB491-C9EC-46B8-912F-19B95024366E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Db", "Db", "{AB9F3CB5-334E-41C3-8A4B-CA7488C5DB0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis", "Redis\Redis.csproj", "{1285BA63-872C-4EDE-9E13-AAC3CA176E11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,10 @@ Global
 		{469DB491-C9EC-46B8-912F-19B95024366E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{469DB491-C9EC-46B8-912F-19B95024366E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{469DB491-C9EC-46B8-912F-19B95024366E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1285BA63-872C-4EDE-9E13-AAC3CA176E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1285BA63-872C-4EDE-9E13-AAC3CA176E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1285BA63-872C-4EDE-9E13-AAC3CA176E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1285BA63-872C-4EDE-9E13-AAC3CA176E11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2BEEC771-E089-4D1E-9AC2-D6664CCB94C6} = {E8958D15-84E2-4189-9D48-59F65AB7537E}
 		{469DB491-C9EC-46B8-912F-19B95024366E} = {E8958D15-84E2-4189-9D48-59F65AB7537E}
+		{1285BA63-872C-4EDE-9E13-AAC3CA176E11} = {AB9F3CB5-334E-41C3-8A4B-CA7488C5DB0C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77F7AE1D-EE46-4513-8078-7F56EECA2862}
