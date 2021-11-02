@@ -13,5 +13,10 @@ namespace Redis
             _connection = ConnectionMultiplexer.Connect("localhost:6379");
             RedisRepo = _connection.GetDatabase(num);
         }
+
+        ~Repository()
+        {
+            _connection?.Dispose();
+        }
     }
 }
