@@ -23,7 +23,7 @@ namespace ProductCatalog
             return products;
         }
 
-        public Product Get(Guid productId)
+        public Product Get(int productId)
         {
             var products = _productRepository.GetById(productId).Result;
             return products;

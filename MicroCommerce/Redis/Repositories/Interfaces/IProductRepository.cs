@@ -9,6 +9,6 @@ namespace Redis.Repositories.Interfaces
     {
         Task<IEnumerable<Product>> Get();
 
-        Task<Product> GetById(Guid id);
+        Task<Product> GetById(int id);
     }
 }

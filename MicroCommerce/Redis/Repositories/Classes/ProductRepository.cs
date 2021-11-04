@@ -18,7 +18,7 @@ namespace Redis.Repositories.Classes
             return products;
         }
 
-        public async Task<Product> GetById(Guid id)
+        public async Task<Product> GetById(int id)
         {
             var redisValue = await RedisRepo.HashGetAsync("Products", id.ToString().ToUpper());
             var product = Newtonsoft.Json.JsonConvert.DeserializeObject<Product>(redisValue);

@@ -1,4 +1,4 @@
-version: "1.0.0.0"
+version: "2"
 
 services: 
   ProductCatalog:
@@ -9,6 +9,8 @@ services:
     image: "product-catalog"
     ports:
       - "3000:80"
+    depends_on: 
+      - "redis"
   ShoppingCart:
     container_name: ShoppingCart
     build:
@@ -17,5 +19,19 @@ services:
     image: "shopping-cart"
     ports:
       - "3001:80"
-    links:
-      - product-catalog
+    depends_on:
+      - "ProductCatalog"
+  redis:
+    container_name: Redis
+    image: "redis"
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-db:/data
+volumes: 
+  redis-db:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/Users/kravcov/Public/MyGitHub/CSharp-Core/MicroCommerce/db-data/redis'

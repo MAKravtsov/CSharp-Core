@@ -13,6 +13,6 @@ namespace Interfaces.Interfaces
         IEnumerable<Product> Get();
 
         [Route("get/{productId}")]
-        public Product Get(Guid productId);
+        public Product Get(int productId);
     }
 }

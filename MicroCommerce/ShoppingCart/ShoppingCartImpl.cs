@@ -37,7 +37,7 @@ namespace ShoppingCart
             return result;
         }
         
-        public Cart AddOrder(Guid productId, int qty)
+        public Cart AddOrder(int productId, int qty)
         {
             var order = _orders.FirstOrDefault(i => i.Product.Id == productId);
             if(order != null)
