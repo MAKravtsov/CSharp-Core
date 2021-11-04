@@ -3,13 +3,14 @@ using System.Net.Http;
 using Interfaces.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MiddleWare;
 using Shed.CoreKit.WebApi;
 
-namespace ShoppingCart
+namespace ActivityLogger
 {
     public class Startup
     {
@@ -19,15 +20,15 @@ namespace ShoppingCart
         {
             services.AddCorrelationToken();
             services.AddCors();
-            
-            services.AddTransient<IShoppingCart, ShoppingCartImpl>();
+            services.AddTransient<IActivityLogger, ActivityLoggerImpl>();
             services.AddTransient<HttpClient>();
             
             // локально или в docker
-            //services.AddWebApiEndpoints(new WebApiEndpoint<IProductCatalog>(new Uri("http://localhost:5000")));
-            services.AddWebApiEndpoints(new WebApiEndpoint<IProductCatalog>(new Uri("http://ProductCatalog")));
+            //services.AddWebApiEndpoints(new WebApiEndpoint<IShoppingCart>(new Uri("http://localhost:5001")));
+            services.AddWebApiEndpoints(new WebApiEndpoint<IShoppingCart>(new Uri("http://ShoppingCart")));
             
-            services.AddLogging(builder => builder.AddConsole());
+            services.AddHostedService<Scheduller>();
+            services.AddLogging(b => b.AddConsole());
             services.AddRequestLogging();
         }
 
@@ -40,15 +41,16 @@ namespace ShoppingCart
             }
 
             app.UseCorrelationToken();
-            app.UseRequestLogging("getevents");
-            app.UseCors(builder => {
+            app.UseRequestLogging("get");
+            app.UseCors(builder =>
+            {
                 builder
                     .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             });
 
-            app.UseWebApiEndpoint<IShoppingCart>();
+            app.UseWebApiEndpoint<IActivityLogger>();
         }
     }
 }

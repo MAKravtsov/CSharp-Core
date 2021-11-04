@@ -1,18 +1,12 @@
 using Interfaces.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Shed.CoreKit.WebApi;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+using MiddleWare;
 
 namespace ProductCatalog
 {
@@ -36,6 +30,7 @@ namespace ProductCatalog
             services.AddTransient<Redis.Repositories.Interfaces.IProductRepository, Redis.Repositories.Classes.ProductRepository>();
 
             services.AddLogging(builder => builder.AddConsole());
+            services.AddRequestLogging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +40,8 @@ namespace ProductCatalog
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCorrelationToken();
+            app.UseRequestLogging();
             app.UseCors(builder => {
                 builder
                     .AllowAnyOrigin()
@@ -52,11 +49,6 @@ namespace ProductCatalog
                     .AllowAnyHeader();
             });
 
-            JsonConvert.DefaultSettings = () => new JsonSerializerSettings {
-                Formatting = Formatting.Indented,
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            };
-            
             // Calling microservice
             app.UseWebApiEndpoint<IProductCatalog>();
         }

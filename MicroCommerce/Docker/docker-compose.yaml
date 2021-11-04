@@ -21,6 +21,16 @@ services:
       - "3001:80"
     depends_on:
       - "ProductCatalog"
+  ActivityLogger:
+    container_name: ActivityLogger
+    build:
+      context: ../
+      dockerfile: Docker/ActivityLogger/Dockerfile
+    image: "activity-logger"
+    ports:
+      - "3002:80"
+    depends_on:
+      - "ShoppingCart"
   redis:
     container_name: Redis
     image: "redis"

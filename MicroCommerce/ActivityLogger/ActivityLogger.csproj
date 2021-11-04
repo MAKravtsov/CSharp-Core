@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
+      <ProjectReference Include="..\MiddleWare\MiddleWare.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Shed.CoreKit.WebApi" Version="1.0.0" />
+    </ItemGroup>
+
+</Project>

@@ -10,6 +10,8 @@ namespace Redis
 
         public Repository(int num)
         { 
+            // локально или в docker
+            //_connection = ConnectionMultiplexer.Connect("localhost:6379");
             _connection = ConnectionMultiplexer.Connect("Redis");
             RedisRepo = _connection.GetDatabase(num);
         }

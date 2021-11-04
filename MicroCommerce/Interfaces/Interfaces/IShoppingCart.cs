@@ -19,6 +19,7 @@ namespace Interfaces.Interfaces
         [HttpGet, Route("test")]
         string  Test();
         
+        [HttpDelete, Route("deleteorder/{orderId}")]
         Cart DeleteOrder(Guid orderId);
 
         [Route("getevents/{timestamp}")]
