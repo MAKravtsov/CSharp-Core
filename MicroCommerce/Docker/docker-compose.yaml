@@ -5,7 +5,7 @@ services:
     container_name: ProductCatalog
     build: 
       context: ../
-      dockerfile: Docker/ProductCatalog/Dockerfile
+      dockerfile: Docker/ProductCatalog.RestApi/Dockerfile
     image: "product-catalog"
     ports:
       - "3000:80"

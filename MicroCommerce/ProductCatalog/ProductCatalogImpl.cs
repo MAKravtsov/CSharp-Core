@@ -15,7 +15,7 @@ namespace ProductCatalog
 
         public IEnumerable<Product> Get()
         {
-            var products = _productRepository.Get().Result;
+            var products = _productRepository.GetAll().Result;
             return products;
         }
 

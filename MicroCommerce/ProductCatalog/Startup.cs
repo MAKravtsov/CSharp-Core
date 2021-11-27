@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Shed.CoreKit.WebApi;
 using MiddleWare;
+using Redis.Repositories.Implementations;
 
 namespace ProductCatalog
 {
@@ -27,7 +28,7 @@ namespace ProductCatalog
             
             // Calling microservice
             services.AddTransient<IProductCatalog, ProductCatalogImpl>();
-            services.AddTransient<Redis.Repositories.Interfaces.IProductRepository, Redis.Repositories.Classes.ProductRepository>();
+            services.AddTransient<Redis.Repositories.Interfaces.IProductRepository, ProductsRepository>();
 
             services.AddLogging(builder => builder.AddConsole());
             services.AddRequestLogging();

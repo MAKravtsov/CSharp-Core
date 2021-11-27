@@ -20,13 +20,13 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS sdk
 COPY . /src
 
 # переходим в каталог src/ProductCatalog в образе sdk ( аналогично команде cd )
-WORKDIR "/src/ProductCatalog"
+WORKDIR "/src/ProductCatalog.RestApi"
 
 # Делаем Build проекта
-RUN dotnet build "ProductCatalog.csproj" -c Release -o /app/build
+RUN dotnet build "ProductCatalog.RestApi.csproj" -c Release -o /app/build
 
 #  Делаем publish проекта
-RUN dotnet publish "ProductCatalog.csproj" -c Release -o /app/publish
+RUN dotnet publish "ProductCatalog.RestApi.csproj" -c Release -o /app/publish
 
 # Входим в образ asp .net
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS aspnet
@@ -41,4 +41,4 @@ COPY --from=sdk /app/publish .
 EXPOSE 80
 
 # Вызов команды dotnet ProductCatalog.dll ( можно было через команду CMD )
-ENTRYPOINT ["dotnet", "ProductCatalog.dll"]
+ENTRYPOINT ["dotnet", "ProductCatalog.RestApi.dll"]
