@@ -21,10 +21,12 @@ namespace Redis.Repositories
 
         private void Connect(RepositoriesEnum repositoryEnum)
         {
-            // локально или в docker
-            //_connection = ConnectionMultiplexer.Connect("localhost:6379");
+#if DEBUG
+            Connection = ConnectionMultiplexer.Connect("localhost:6379");
+#else
             Connection = ConnectionMultiplexer.Connect("Redis");
-            
+#endif
+
             var repositoryNum = (int) repositoryEnum;
             RedisRepo = Connection.GetDatabase(repositoryNum);
         }

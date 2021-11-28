@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityLogger", "ActivityL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductCatalog.RestApi", "ProductCatalog.RestApi\ProductCatalog.RestApi.csproj", "{3B573F8F-C380-4581-B4BA-DDD4B0E56393}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4BA131D5-F84E-46C2-B752-C993A0ECBD7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient.Common", "HttpClient.Common\HttpClient.Common.csproj", "{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{3B573F8F-C380-4581-B4BA-DDD4B0E56393}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B573F8F-C380-4581-B4BA-DDD4B0E56393}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B573F8F-C380-4581-B4BA-DDD4B0E56393}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +66,7 @@ Global
 		{1285BA63-872C-4EDE-9E13-AAC3CA176E11} = {AB9F3CB5-334E-41C3-8A4B-CA7488C5DB0C}
 		{318B886B-48BF-4B7C-808B-3620D3A86386} = {E8958D15-84E2-4189-9D48-59F65AB7537E}
 		{3B573F8F-C380-4581-B4BA-DDD4B0E56393} = {E8958D15-84E2-4189-9D48-59F65AB7537E}
+		{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE} = {4BA131D5-F84E-46C2-B752-C993A0ECBD7B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77F7AE1D-EE46-4513-8078-7F56EECA2862}

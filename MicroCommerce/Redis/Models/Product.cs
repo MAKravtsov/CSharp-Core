@@ -9,14 +9,7 @@ namespace Redis.Models
 
         public string Name { get; set; }
 
-        public Product() { }
-        
-        public Product(int id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
-
+        [JsonIgnore]
         public HashEntry HashEntry
         {
             get 

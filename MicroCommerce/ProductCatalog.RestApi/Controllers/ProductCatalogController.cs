@@ -17,6 +17,7 @@ namespace ProductCatalog.RestApi.Controllers
         }
         
         [HttpGet]
+        [Route("get-all")]
         public async Task<IActionResult> GetAll()
         {
             var products = await _productCatalogService.GetAll();
@@ -24,7 +25,7 @@ namespace ProductCatalog.RestApi.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("get/{id:int}")]
         public async Task<IActionResult> Get([FromRoute] int id)
         {
             var product = await _productCatalogService.Get(id);
@@ -32,6 +33,7 @@ namespace ProductCatalog.RestApi.Controllers
         }
 
         [HttpPost]
+        [Route("add")]
         public async Task<IActionResult> Add([FromBody] ProductViewModel productViewModel)
         {
             await _productCatalogService.Add(productViewModel);

@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
+using HttpClient.Common;
 using Interfaces.Enums;
 using Interfaces.Interfaces;
 using Interfaces.Models;
@@ -15,28 +17,14 @@ namespace ShoppingCart
     {
         private static List<Order> _orders = new ();
         private static List<CartEvent> _events = new ();
-        private IProductCatalog _catalog;
-        
-        public ShoppingCartImpl(IProductCatalog catalog)
+        private readonly ICommonHttpClient _client;
+
+
+        public ShoppingCartImpl(ICommonHttpClient client)
         {
-            _catalog = catalog;
+            _client = client;
         }
 
-        public string Test()
-        {
-            using var client = new HttpClient();
-            client.BaseAddress = new Uri("http://ProductCatalog");
-            var request = new HttpRequestMessage(HttpMethod.Get, "/get")
-            {
-                Content = new StringContent("", Encoding.UTF8, "application/json")
-            };
-
-            var response = client.Send(request);
-            var result = response.Content.ReadAsStringAsync().Result;
-
-            return result;
-        }
-        
         public Cart AddOrder(int productId, int qty)
         {
             var order = _orders.FirstOrDefault(i => i.Product.Id == productId);
@@ -47,7 +35,18 @@ namespace ShoppingCart
             }
             else
             {
-                var product = _catalog.Get(productId);
+#if DEBUG
+                var product = _client.GetResponse<Product>(
+                    HttpMethod.Get,
+                        $"http://localhost:5000/product-catalog/get/{productId}")
+                    .ConfigureAwait(false).GetAwaiter().GetResult();
+#else
+                var product = _client.GetResponse<Product>(
+                    HttpMethod.Get,
+                        $"http://ProductCatalog/product-catalog/get/{productId}")
+                    .ConfigureAwait(false).GetAwaiter().GetResult();
+#endif
+                
                 if (product != null)
                 {
                     order = new Order

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MiddleWare;
+using ProductCatalog.RestApi.Mapping;
 using ProductCatalog.RestApi.Services.Implementations;
 using ProductCatalog.RestApi.Services.Interfaces;
 using Redis.Repositories.Implementations;
@@ -31,10 +34,17 @@ namespace ProductCatalog.RestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            
+            services.AddSwaggerGen();
+
+            services.AddLogging(builder => builder.AddConsole());
+            services.AddRequestLogging();
 
             AddRepositories(services);
             
             AddServices(services);
+            
+            AddMapping(services);
         }
 
         private void AddRepositories(IServiceCollection services)
@@ -45,6 +55,17 @@ namespace ProductCatalog.RestApi
         private void AddServices(IServiceCollection services)
         {
             services.AddTransient<IProductCatalogService, ProductCatalogService>();
+        }
+
+        private void AddMapping(IServiceCollection services)
+        {
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            var mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +83,8 @@ namespace ProductCatalog.RestApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseRequestLogging();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

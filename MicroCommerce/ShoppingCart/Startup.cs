@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using HttpClient.Common;
 using Interfaces.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -21,12 +22,8 @@ namespace ShoppingCart
             services.AddCors();
             
             services.AddTransient<IShoppingCart, ShoppingCartImpl>();
-            services.AddTransient<HttpClient>();
-            
-            // локально или в docker
-            //services.AddWebApiEndpoints(new WebApiEndpoint<IProductCatalog>(new Uri("http://localhost:5000")));
-            services.AddWebApiEndpoints(new WebApiEndpoint<IProductCatalog>(new Uri("http://ProductCatalog")));
-            
+            services.AddSingleton<ICommonHttpClient, CommonHttpClient>();
+
             services.AddLogging(builder => builder.AddConsole());
             services.AddRequestLogging();
         }

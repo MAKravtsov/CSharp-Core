@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\HttpClient.Common\HttpClient.Common.csproj" />
       <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
       <ProjectReference Include="..\MiddleWare\MiddleWare.csproj" />
     </ItemGroup>

@@ -16,9 +16,6 @@ namespace Interfaces.Interfaces
         [HttpPut, Route("addorder/{productId}/{qty}")]
         Cart AddOrder(int productId, int qty);
 
-        [HttpGet, Route("test")]
-        string  Test();
-        
         [HttpDelete, Route("deleteorder/{orderId}")]
         Cart DeleteOrder(Guid orderId);
 
