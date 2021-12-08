@@ -3,5 +3,5 @@ obj
 packages
 .idea
 .vs
-.user
-db-data
+*.user
+*.rdb

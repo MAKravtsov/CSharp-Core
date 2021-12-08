@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Redis.Models;
 using Redis.Repositories.Interfaces;
 using Newtonsoft.Json;
-using StackExchange.Redis;
 
 namespace Redis.Repositories.Implementations
 {

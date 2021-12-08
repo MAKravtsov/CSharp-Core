@@ -1,27 +1,48 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31605.320
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{1980C6A8-58B2-4B9A-8F5D-B61B6703A86E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices", "MicroServices", "{E8958D15-84E2-4189-9D48-59F65AB7537E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddleWare", "MiddleWare\MiddleWare.csproj", "{E3CC306C-5A65-457D-8DAD-503B5ED39504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddleWare", "MiddleWare\MiddleWare.csproj", "{E3CC306C-5A65-457D-8DAD-503B5ED39504}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart", "ShoppingCart\ShoppingCart.csproj", "{469DB491-C9EC-46B8-912F-19B95024366E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart", "ShoppingCart\ShoppingCart.csproj", "{469DB491-C9EC-46B8-912F-19B95024366E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Db", "Db", "{AB9F3CB5-334E-41C3-8A4B-CA7488C5DB0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis", "Redis\Redis.csproj", "{1285BA63-872C-4EDE-9E13-AAC3CA176E11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Redis", "Redis\Redis.csproj", "{1285BA63-872C-4EDE-9E13-AAC3CA176E11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivityLogger", "ActivityLogger\ActivityLogger.csproj", "{318B886B-48BF-4B7C-808B-3620D3A86386}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivityLogger", "ActivityLogger\ActivityLogger.csproj", "{318B886B-48BF-4B7C-808B-3620D3A86386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductCatalog.RestApi", "ProductCatalog.RestApi\ProductCatalog.RestApi.csproj", "{3B573F8F-C380-4581-B4BA-DDD4B0E56393}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductCatalog.RestApi", "ProductCatalog.RestApi\ProductCatalog.RestApi.csproj", "{3B573F8F-C380-4581-B4BA-DDD4B0E56393}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4BA131D5-F84E-46C2-B752-C993A0ECBD7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient.Common", "HttpClient.Common\HttpClient.Common.csproj", "{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient.Common", "HttpClient.Common\HttpClient.Common.csproj", "{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{BB257115-B571-448D-861D-E63F12424BCE}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\docker-compose.yaml = Docker\docker-compose.yaml
+		Docker\Makefile = Docker\Makefile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ActivityLogger", "ActivityLogger", "{EC48B953-ED37-4260-BC8B-B25686969D5F}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\ActivityLogger\Dockerfile = Docker\ActivityLogger\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProductCatalog.RestApi", "ProductCatalog.RestApi", "{E42EB813-A522-4F3D-80BF-00049628D35C}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\ProductCatalog.RestApi\Dockerfile = Docker\ProductCatalog.RestApi\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingCart", "ShoppingCart", "{9FA11638-626B-46B7-90BB-A2C9AD4B4544}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\ActivityLogger\Dockerfile = Docker\ActivityLogger\Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +88,9 @@ Global
 		{318B886B-48BF-4B7C-808B-3620D3A86386} = {E8958D15-84E2-4189-9D48-59F65AB7537E}
 		{3B573F8F-C380-4581-B4BA-DDD4B0E56393} = {E8958D15-84E2-4189-9D48-59F65AB7537E}
 		{E2C57C2D-5EC6-4738-B49A-5E291C01A2BE} = {4BA131D5-F84E-46C2-B752-C993A0ECBD7B}
+		{EC48B953-ED37-4260-BC8B-B25686969D5F} = {BB257115-B571-448D-861D-E63F12424BCE}
+		{E42EB813-A522-4F3D-80BF-00049628D35C} = {BB257115-B571-448D-861D-E63F12424BCE}
+		{9FA11638-626B-46B7-90BB-A2C9AD4B4544} = {BB257115-B571-448D-861D-E63F12424BCE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77F7AE1D-EE46-4513-8078-7F56EECA2862}
