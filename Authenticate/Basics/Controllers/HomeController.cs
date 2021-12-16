@@ -13,28 +13,5 @@ namespace Basics.Controllers
         {
             return View();
         }
-
-        [Authorize]
-        public IActionResult Secret()
-        {
-            return View();
-        }
-
-        public IActionResult Authenticate()
-        {
-            var claims = new List<Claim>()
-            {
-                new Claim(ClaimTypes.Name, "Bob"),
-                new Claim("MyClaim", "Secret")
-            };
-
-            var identity = new ClaimsIdentity(claims, "Identity");
-
-            var user = new ClaimsPrincipal(new[] { identity });
-
-            HttpContext.SignInAsync(user);
-
-            return RedirectToAction("Index");
-        }
     }
 }

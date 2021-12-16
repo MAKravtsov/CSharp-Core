@@ -12,22 +12,24 @@ namespace Basics
 {
     public class Startup
     {
-        private string _cookieAuthName;
+        public static string CookieAuthName;
         private string _cookieName;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            _cookieAuthName = "CookieAuth";
-            _cookieName = "Grandmas.Cookie";
+            CookieAuthName = "CookieAuth";
+            _cookieName = "MyCookie";
 
-            services.AddAuthentication(_cookieAuthName)
-                .AddCookie(_cookieAuthName, config =>
+            services.AddAuthentication(CookieAuthName)
+                .AddCookie(CookieAuthName, config =>
                 {
                     config.Cookie.Name = _cookieName;
-                    config.LoginPath = "/home/authenticate";
+                    config.LoginPath = "/admin/login";
                 });
+
+            services.AddAuthorization();
 
             services.AddControllersWithViews();
         }
