@@ -1,0 +1,39 @@
+﻿@using Roles.Infrastructure
+@model LoginModel
+
+<h1>Login</h1>
+
+<form asp-controller = "Admin" asp-action = "Login" method="post">
+    <input hidden asp-for="ReturnUrl" />
+    
+    <div>
+        <label>UserName</label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <div>
+        <select asp-for="Role">
+            @foreach(var policy in Policies.AllPolicies)
+            {
+                <option>@policy</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label>Secret word</label>
+        <input asp-for="SecretWord" />
+        <span asp-validation-for="SecretWord"></span>
+    </div>
+
+    <p>
+        <button type="submit">Log in</button>
+    </p>
+</form>
