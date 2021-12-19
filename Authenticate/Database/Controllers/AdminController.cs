@@ -1,17 +1,31 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Database.Entities;
+using Database.Infrastructure;
+using Database.Model;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Roles.Infrastructure;
-using Roles.Model;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.AspNetCore.Identity;
+using Database.Data;
 
-namespace Roles.Controllers
+namespace Database.Controllers
 {
     [Authorize]
     public class AdminController : Controller
     {
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
+
+        public AdminController(UserManager<User> userManager,
+            SignInManager<User> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -47,26 +61,35 @@ namespace Roles.Controllers
             if (!ModelState.IsValid)
                 return View(loginModel);
 
-            var claims = new List<Claim>()
+            var user = await _userManager.FindByNameAsync(loginModel.UserName);
+
+            // Если самостоятельно реализовываем БД
+            /*
+            var user = _usersContext.Users.SingleOrDefault(y =>
+                y.UserName == loginModel.UserName
+                && y.Password == y.Password);
+            */
+
+            if (user == null)
             {
-                new Claim(ClaimTypes.Name, loginModel.UserName),
-                new Claim(ClaimTypes.Role, loginModel.Role),
-                new Claim(CustomClaims.SecretWord, loginModel.SecretWord)
-            };
+                ModelState.AddModelError("", "Пользователь не найден");
+                return View(loginModel);
+            }
 
-            // CookieAuthName - очень важно, без него не заработает
-            var identity = new ClaimsIdentity(claims, Startup.CookieAuthName);
+            var result = await _signInManager.PasswordSignInAsync(user, loginModel.Password, false, false);
 
-            var principal = new ClaimsPrincipal(identity);
-
-            await HttpContext.SignInAsync(principal);
+            if(!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Неверно введен пароль");
+                return View(loginModel);
+            }
 
             return Redirect(loginModel.ReturnUrl);
         }
 
         public async Task<IActionResult> LogOut()
         {
-            await HttpContext.SignOutAsync();
+            await _signInManager.SignOutAsync();
             return Redirect("/Home/Index");
         }
 

@@ -1,4 +1,6 @@
 ﻿<h1>Manager</h1>
 
-<a asp-controller = "Home" asp-action = "Index" >Home</a>
-<a asp-controller = "Admin" asp-action = "LogOut" >LogOut</a>
+<!-- Использовать view в другом view -->
+@{
+    Html.RenderPartial("Links");
+}
