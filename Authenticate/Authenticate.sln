@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roles", "Roles\Roles.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Database.csproj", "{9741E24F-9995-43DA-AE2D-BB37199225EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookDemo", "FacebookDemo\FacebookDemo.csproj", "{3F8912E1-E68D-4532-B32D-E7B3BFCF11EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacebookDemo", "FacebookDemo\FacebookDemo.csproj", "{3F8912E1-E68D-4532-B32D-E7B3BFCF11EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtBearer", "JwtBearer\JwtBearer.csproj", "{2BD760D0-C74F-4453-819F-BC46AD166EEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3F8912E1-E68D-4532-B32D-E7B3BFCF11EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F8912E1-E68D-4532-B32D-E7B3BFCF11EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F8912E1-E68D-4532-B32D-E7B3BFCF11EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BD760D0-C74F-4453-819F-BC46AD166EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BD760D0-C74F-4453-819F-BC46AD166EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BD760D0-C74F-4453-819F-BC46AD166EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BD760D0-C74F-4453-819F-BC46AD166EEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
