@@ -1,0 +1,12 @@
+﻿<h1>Home page</h1>
+
+<a asp-controller = "Admin" asp-action = "Index" >Secured</a>
+<a asp-controller = "Admin" asp-action = "LogOut" >Log out</a>
+
+<p>
+    IsAuthenticated : @ViewBag.IsAuthenticated
+</p>
+
+<p>
+    Name : @ViewBag.Name
+</p>
