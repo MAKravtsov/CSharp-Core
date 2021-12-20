@@ -1,0 +1,25 @@
+﻿@model TwoFactorModel
+
+<form asp-controller = "Admin" asp-action = "SmsTwoFactorAuthorization" method="post">
+    <input hidden asp-for="ReturnUrl" />
+
+    <input hidden asp-for="PhoneNumber" />
+    
+    <div asp-validation-summary=All></div>
+
+
+    <div>
+        <label>PhoneNumber</label>
+        <label>@Model?.PhoneNumber</label>
+    </div>
+
+    <div>
+        <label>Code</label>
+        <input asp-for="Code" />
+        <span asp-validation-for="Code"></span>
+    </div>
+
+    <p>
+        <button type="submit">Log in</button>
+    </p>
+</form>
