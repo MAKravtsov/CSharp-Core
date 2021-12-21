@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.Api", "Users.Api\User
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{4AE3EF05-63DF-4BF5-8C60-B743BC3A0787}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Mvc", "Client.Mvc\Client.Mvc.csproj", "{2BC78B40-9B85-4277-B778-6B996848D70D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{4AE3EF05-63DF-4BF5-8C60-B743BC3A0787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AE3EF05-63DF-4BF5-8C60-B743BC3A0787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AE3EF05-63DF-4BF5-8C60-B743BC3A0787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BC78B40-9B85-4277-B778-6B996848D70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BC78B40-9B85-4277-B778-6B996848D70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BC78B40-9B85-4277-B778-6B996848D70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BC78B40-9B85-4277-B778-6B996848D70D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

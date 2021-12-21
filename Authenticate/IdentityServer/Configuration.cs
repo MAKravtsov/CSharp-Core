@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using System.Collections.Generic;
 
 namespace IdentityServer
@@ -20,6 +21,20 @@ namespace IdentityServer
                     new [] {
                         OrdersApi
                     },
+                },
+                new Client
+                {
+                    ClientId = "client_id_mvc",
+                    ClientSecrets = { new Secret("client_secret_mvc".Sha256()) },
+                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowedScopes =
+                    new [] {
+                        OrdersApi,
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    },
+
+                    RedirectUris = { "https://localhost:8001/signin-oidc" }
                 }
             };
         }
@@ -36,7 +51,9 @@ namespace IdentityServer
         {
             return new List<IdentityResource>
             {
-                new IdentityResources.OpenId()
+                new IdentityResources.OpenId(),
+                // для Client.Mvc
+                new IdentityResources.Profile()
             };
         }
     }
