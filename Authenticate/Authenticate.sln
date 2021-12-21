@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FacebookDemo", "FacebookDem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtBearer", "JwtBearer\JwtBearer.csproj", "{2BD760D0-C74F-4453-819F-BC46AD166EEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFA.Sms", "TFA.Sms\TFA.Sms.csproj", "{B11C2CF0-2C28-4D9F-8734-60F17F565779}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFA.Sms", "TFA.Sms\TFA.Sms.csproj", "{B11C2CF0-2C28-4D9F-8734-60F17F565779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKontakte", "VKontakte\VKontakte.csproj", "{899F411B-DD4F-4C3B-B377-18840CC2D4F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{B11C2CF0-2C28-4D9F-8734-60F17F565779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B11C2CF0-2C28-4D9F-8734-60F17F565779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B11C2CF0-2C28-4D9F-8734-60F17F565779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{899F411B-DD4F-4C3B-B377-18840CC2D4F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{899F411B-DD4F-4C3B-B377-18840CC2D4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{899F411B-DD4F-4C3B-B377-18840CC2D4F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{899F411B-DD4F-4C3B-B377-18840CC2D4F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
