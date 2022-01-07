@@ -15,17 +15,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtBearer", "JwtBearer\JwtB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TFA.Sms", "TFA.Sms\TFA.Sms.csproj", "{B11C2CF0-2C28-4D9F-8734-60F17F565779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKontakte", "VKontakte\VKontakte.csproj", "{899F411B-DD4F-4C3B-B377-18840CC2D4F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKontakte", "VKontakte\VKontakte.csproj", "{899F411B-DD4F-4C3B-B377-18840CC2D4F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{EE33C977-A219-47F7-BC60-69BFDD3AAE14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders.Api", "Orders.Api\Orders.Api.csproj", "{24805DE5-A859-4A0B-A7B2-003AD1389AB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders.Api", "Orders.Api\Orders.Api.csproj", "{24805DE5-A859-4A0B-A7B2-003AD1389AB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.Api", "Users.Api\Users.Api.csproj", "{B3FD0F07-DB65-4048-AA13-B3CD57B8E0B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Users.Api", "Users.Api\Users.Api.csproj", "{B3FD0F07-DB65-4048-AA13-B3CD57B8E0B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{4AE3EF05-63DF-4BF5-8C60-B743BC3A0787}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{4AE3EF05-63DF-4BF5-8C60-B743BC3A0787}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.Mvc", "Client.Mvc\Client.Mvc.csproj", "{2BC78B40-9B85-4277-B778-6B996848D70D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.Mvc", "Client.Mvc\Client.Mvc.csproj", "{2BC78B40-9B85-4277-B778-6B996848D70D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database.Jwt", "Database.Jwt\Database.Jwt.csproj", "{24F8758E-D771-40EB-9DB9-708AA12CC1DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{2BC78B40-9B85-4277-B778-6B996848D70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BC78B40-9B85-4277-B778-6B996848D70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BC78B40-9B85-4277-B778-6B996848D70D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24F8758E-D771-40EB-9DB9-708AA12CC1DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24F8758E-D771-40EB-9DB9-708AA12CC1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24F8758E-D771-40EB-9DB9-708AA12CC1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24F8758E-D771-40EB-9DB9-708AA12CC1DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{2BD760D0-C74F-4453-819F-BC46AD166EEB} = {EE33C977-A219-47F7-BC60-69BFDD3AAE14}
 		{B11C2CF0-2C28-4D9F-8734-60F17F565779} = {EE33C977-A219-47F7-BC60-69BFDD3AAE14}
 		{899F411B-DD4F-4C3B-B377-18840CC2D4F3} = {EE33C977-A219-47F7-BC60-69BFDD3AAE14}
+		{24F8758E-D771-40EB-9DB9-708AA12CC1DA} = {EE33C977-A219-47F7-BC60-69BFDD3AAE14}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7CD7E4A-BC93-4039-8086-C0E918D92D6E}
