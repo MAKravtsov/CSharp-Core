@@ -22,6 +22,7 @@ namespace Client.Mvc
             {
                 config.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 config.DefaultChallengeScheme = openIdConnectName;
+                config.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             })
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddOpenIdConnect(openIdConnectName, config =>
