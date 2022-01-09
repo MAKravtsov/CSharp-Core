@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using IdentityServer4.AspNetIdentity;
+using IdentityServer.Infrastructure;
 
 namespace IdentityServer
 {
@@ -51,6 +52,7 @@ namespace IdentityServer
                 .AddInMemoryClients(Configuration.GetClients())
                 .AddInMemoryApiResources(Configuration.GetApiResources())
                 .AddInMemoryIdentityResources(Configuration.GetIdentityResoures())
+                .AddProfileService<ProfileService>()
                 .AddDeveloperSigningCredential();
 
             services.AddControllersWithViews();
