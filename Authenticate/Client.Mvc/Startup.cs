@@ -1,13 +1,13 @@
+﻿using Client.Mvc.PolicyProviders;
+using Client.Mvc.Requirements.Handlers;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace Client.Mvc
 {
@@ -31,8 +31,40 @@ namespace Client.Mvc
                     config.ClientId = "client_id_mvc";
                     config.ClientSecret = "client_secret_mvc";
                     config.SaveTokens = true;
+
                     config.ResponseType = "code";
+
+                    config.GetClaimsFromUserInfoEndpoint = true;
+
+                    // иначе не смогу из Client.Mvc обращаться к OrdersAPI
+                    config.Scope.Add("OrdersAPI"); 
+
+                    // маппинг клаймов openId с пользовательскими
+                    config.ClaimActions.MapJsonKey(ClaimTypes.DateOfBirth, ClaimTypes.DateOfBirth); 
                 });
+
+            services.AddAuthorization(config =>
+            {
+                config.AddPolicy("HasDateOfBirth", builder =>
+                {
+                    builder.RequireClaim(ClaimTypes.DateOfBirth);
+                });
+
+                // Заменено на CustomDefaultAuthorizationPolicyProvider
+                /*
+                config.AddPolicy("OlderThan10", builder =>
+                {
+                    builder.AddRequirements(new OlderThanRequirement(10));
+                });
+                */
+            });
+
+            services.AddSingleton<IAuthorizationHandler, OlderThanRequirementHandler>();
+            
+            // Пользовательский полиси провайдер
+            services.AddSingleton<IAuthorizationPolicyProvider, CustomDefaultAuthorizationPolicyProvider>();
+
+            services.AddHttpClient();
 
             services.AddControllersWithViews();
         }

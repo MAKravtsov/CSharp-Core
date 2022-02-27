@@ -38,7 +38,7 @@ namespace IdentityServer
 
                     RequireConsent = false,
 
-                    AlwaysIncludeUserClaimsInIdToken = true,
+                    //AlwaysIncludeUserClaimsInIdToken = true,
                 }
             };
         }

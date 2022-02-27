@@ -12,7 +12,8 @@ namespace IdentityServer.Infrastructure
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.DateOfBirth, "01.01.2020")
+                // 2009 год, чтобы срабатывала политика
+                new Claim(ClaimTypes.DateOfBirth, "01.01.2009")
             };
             context.IssuedClaims.AddRange(claims);
             return Task.CompletedTask;
