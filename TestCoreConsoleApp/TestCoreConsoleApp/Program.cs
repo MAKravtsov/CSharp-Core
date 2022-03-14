@@ -16,7 +16,6 @@ namespace TestCoreConsoleApp
 			Console.WriteLine(b[0]);
 		}
 
-		/*
 		public static int[] MyDistinct(int[] src)
 		{
 			if (src == null)
@@ -34,7 +33,6 @@ namespace TestCoreConsoleApp
 
 			return result.ToArray();
 		}
-		*/
 
 		public static IEnumerable<T> FilterLast<T>(IEnumerable<T> source, int n)
         {
