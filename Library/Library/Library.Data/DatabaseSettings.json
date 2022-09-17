@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "LibraryConnectionString": "Server=localhost;Database=Library;User ID=postgres;Password=P@ssw0rd"
+  }
+}
