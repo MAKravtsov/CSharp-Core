@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option csharp_namespace = "FurnitureShop.Core.Shop.Api.Contracts";
+
+package orders;
+
+import "annotations.proto";
+
+service Orders {
+  rpc GetClientOrders (GetClientOrdersRequest) returns (GetClientOrdersResponse) {
+    option (google.api.http) = {
+      get: "/api/orders/{ClientId}"
+    };
+  }
+}
+
+message GetClientOrdersRequest { 
+  int64 ClientId = 1;
+}
+
+message GetClientOrdersResponse {
+  Client Client = 1;
+  repeated Order Orders = 2;
+}
+
+message Order {
+  string Id = 1;
+  string Name = 2;
+}
+
+message Client {
+  string FirstName = 1;
+  string LastName = 2;
+  int64 ClientId = 3;
+}

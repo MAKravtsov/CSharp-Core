@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "FurnitureShop.Core.Shop.Api.Contracts";
+
+package furnitureCatalog;
+
+import "annotations.proto";
+
+service FurnitureCatalog {
+  rpc GetFurnitureCatalog (GetFurnitureCatalogRequest) returns (GetFurnitureCatalogResponse) {
+    option (google.api.http) = {
+      get: "/api/furniture-catalog"
+    };
+  }
+}
+
+message GetFurnitureCatalogRequest { }
+
+message GetFurnitureCatalogResponse { 
+  Catalog Catalog = 1;
+}
+
+message Catalog {
+  string Title = 1;
+}
