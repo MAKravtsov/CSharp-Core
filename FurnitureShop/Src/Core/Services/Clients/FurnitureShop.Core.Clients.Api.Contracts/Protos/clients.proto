@@ -7,7 +7,7 @@ package clients;
 import "annotations.proto";
 
 service Clients {
-  rpc GetClient (GetClientRequest) returns (Client) {
+  rpc GetClient (GetClientRequest) returns (GetClientResponse) {
     option (google.api.http) = {
       get: "/api/clients/{ClientId}"
     };
@@ -16,6 +16,10 @@ service Clients {
 
 message GetClientRequest {
   int64 ClientId = 1;
+}
+
+message GetClientResponse {
+  Client Client = 1;
 }
 
 message Client {

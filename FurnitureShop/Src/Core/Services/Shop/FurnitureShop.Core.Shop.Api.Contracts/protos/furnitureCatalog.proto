@@ -7,14 +7,18 @@ package furnitureCatalog;
 import "annotations.proto";
 
 service FurnitureCatalog {
-  rpc ShowFurnitureCatalog (ShowFurnitureCatalogRequest) returns (Catalog) {
+  rpc GetFurnitureCatalog (GetFurnitureCatalogRequest) returns (GetFurnitureCatalogResponse) {
     option (google.api.http) = {
       get: "/api/furniture-catalog"
     };
   }
 }
 
-message ShowFurnitureCatalogRequest { }
+message GetFurnitureCatalogRequest { }
+
+message GetFurnitureCatalogResponse { 
+  Catalog Catalog = 1;
+}
 
 message Catalog {
   string Title = 1;

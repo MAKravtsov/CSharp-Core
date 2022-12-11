@@ -18,6 +18,7 @@ builder.ConfigureLocalhostKestrel(1112, 1122);
 var app = builder.Build();
 
 app.MapGrpcService<FurnitureCatalogService>();
+app.MapGrpcService<OrdersService>();
 
 // Configure the HTTP request pipeline.
 app.UseFurnitureShopSwagger();

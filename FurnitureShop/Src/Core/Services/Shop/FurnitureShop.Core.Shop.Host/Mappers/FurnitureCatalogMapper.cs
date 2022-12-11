@@ -7,7 +7,8 @@ public class FurnitureCatalogMapper : Profile
 {
     public FurnitureCatalogMapper()
     {
-        CreateMap<ShowFurnitureCatalogRequest, Domain.FurnitureCatalog.Requests.ShowFurnitureCatalogRequest>();
+        CreateMap<GetFurnitureCatalogRequest, Domain.FurnitureCatalog.Requests.GetFurnitureCatalogRequest>();
+        CreateMap<Domain.FurnitureCatalog.Response.GetFurnitureCatalogResponse, GetFurnitureCatalogResponse>();
         CreateMap<Domain.FurnitureCatalog.Data.Catalog, Catalog>();
     }
 }

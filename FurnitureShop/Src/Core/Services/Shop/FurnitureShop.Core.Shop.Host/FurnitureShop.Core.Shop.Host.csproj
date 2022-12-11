@@ -8,6 +8,7 @@
 
     <ItemGroup>
         <Protobuf Include="..\FurnitureShop.Core.Shop.Api.Contracts\Protos\furnitureCatalog.proto" GrpsService="Server" />
+        <Protobuf Include="..\FurnitureShop.Core.Shop.Api.Contracts\Protos\orders.proto" GrpsService="Server" />
     </ItemGroup>
     
     <ItemGroup>

@@ -7,5 +7,6 @@ public static class ServiceCollectionExtensions
     internal static void AddMappers(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddAutoMapper(typeof(FurnitureCatalogMapper));
+        serviceCollection.AddAutoMapper(typeof(OrdersMapper));
     }
 }

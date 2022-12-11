@@ -1,19 +1,23 @@
 using FurnitureShop.Core.Clients.Domain.Clients.Data;
 using FurnitureShop.Core.Clients.Domain.Clients.Requests;
+using FurnitureShop.Core.Clients.Domain.Clients.Responses;
 using MediatR;
 
 namespace FurnitureShop.Core.Clients.Domain.Clients.Handlers;
 
 public class GetClientHandler
-    : IRequestHandler<GetClientRequest, Client>
+    : IRequestHandler<GetClientRequest, GetClientResponse>
 {
-    public Task<Client> Handle(GetClientRequest request, CancellationToken cancellationToken)
+    public Task<GetClientResponse> Handle(GetClientRequest request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(new Client
+        return Task.FromResult(new GetClientResponse
         {
-            ClientId = request.ClientId,
-            FirstName = "qwe",
-            LastName = "123"
+            Client = new Client
+            {
+                ClientId = request.ClientId,
+                FirstName = "qwe",
+                LastName = "123"
+            }
         });
     }
 }

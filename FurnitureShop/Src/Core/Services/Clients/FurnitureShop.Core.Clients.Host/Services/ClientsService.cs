@@ -18,10 +18,10 @@ public class ClientsService : Api.Contracts.Clients.ClientsBase
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
     
-    public override async Task<Client> GetClient(GetClientRequest request, ServerCallContext context)
+    public override async Task<GetClientResponse> GetClient(GetClientRequest request, ServerCallContext context)
     {
         var req = _mapper.Map<Domain.Clients.Requests.GetClientRequest>(request);
         var resp = await _mediator.Send(req);
-        return _mapper.Map<Client>(resp);
+        return _mapper.Map<GetClientResponse>(resp);
     }
 }

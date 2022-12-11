@@ -8,6 +8,7 @@ public class ClientsMapper : Profile
     public ClientsMapper()
     {
         CreateMap<GetClientRequest, Domain.Clients.Requests.GetClientRequest>();
+        CreateMap<Domain.Clients.Responses.GetClientResponse, GetClientResponse>();
         CreateMap<Domain.Clients.Data.Client, Client>();
     }
 }

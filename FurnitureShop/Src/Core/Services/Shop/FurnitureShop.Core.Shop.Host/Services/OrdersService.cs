@@ -5,23 +5,23 @@ using MediatR;
 
 namespace FurnitureShop.Core.Shop.Host.Services;
 
-public class FurnitureCatalogService : FurnitureCatalog.FurnitureCatalogBase
+public class OrdersService : Orders.OrdersBase
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
 
-    public FurnitureCatalogService(
+    public OrdersService(
         IMediator mediator,
         IMapper mapper)
     {
         _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
-
-    public override async Task<GetFurnitureCatalogResponse> GetFurnitureCatalog(GetFurnitureCatalogRequest request, ServerCallContext context)
+    
+    public override async Task<GetClientOrdersResponse> GetClientOrders(GetClientOrdersRequest request, ServerCallContext context)
     {
-        var req = _mapper.Map<Domain.FurnitureCatalog.Requests.GetFurnitureCatalogRequest>(request);
+        var req = _mapper.Map<Domain.Orders.Requests.GetClientOrdersRequest>(request);
         var resp = await _mediator.Send(req);
-        return _mapper.Map<GetFurnitureCatalogResponse>(resp);
+        return _mapper.Map<GetClientOrdersResponse>(resp);
     }
 }
