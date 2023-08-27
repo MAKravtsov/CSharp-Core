@@ -5,12 +5,11 @@ namespace Sorting.Algorithms.Base;
 
 internal abstract class SortAlgorithmBase<T> : AlgorithmBase<T> where T : IComparable
 {
-    protected SortAlgorithmBase([NotNull] T[] items) : base(items)
+    protected T[] Items { get; }
+    
+    protected SortAlgorithmBase([NotNull] T[] items)
     {
-    }
-
-    protected static void Swap(ref T valueA, ref T valueB)
-    {
-        (valueB, valueA) = (valueA, valueB);
+        Items = new T[items.Length];
+        items.CopyTo(Items, 0);
     }
 }

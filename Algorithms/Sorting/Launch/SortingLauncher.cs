@@ -1,4 +1,3 @@
-using Common.Extensions;
 using Common.Launch;
 using Common.Locator;
 using Sorting.Algorithms;
@@ -15,10 +14,5 @@ internal class SortingLauncher : LauncherBase
         Locator.Instance.Register(new QuickSort<T>(array));
         Locator.Instance.Register(new TreeSort<T>(array));
         Locator.Instance.Register(new HeapSort<T>(array));
-    }
-
-    protected override void ShowAlgResult<T>(object result)
-    {
-        Console.WriteLine(((T[])result).ToJsonString());
     }
 }

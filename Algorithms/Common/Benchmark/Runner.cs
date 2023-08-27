@@ -9,7 +9,7 @@ public class Runner
 {
     [Benchmark]
     [ArgumentsSource(nameof(Data))]
-    public void Sort(IAlgorithm algorithm)
+    public void Exec(IAlgorithm algorithm)
     {
         algorithm.Execute();
     }

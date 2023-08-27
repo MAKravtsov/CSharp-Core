@@ -22,7 +22,10 @@ public abstract class LauncherBase
 
     protected abstract void RegisterAlgs<T>(T[] array) where T : IComparable;
 
-    protected virtual void ShowAlgResult<T>(object result) { }
+    protected virtual void ShowAlgResult<T>(object result)
+    {
+        Console.WriteLine(((T[])result).ToJsonString());
+    }
 
     public void Launch(string[] args)
     {
@@ -63,7 +66,11 @@ public abstract class LauncherBase
             case "i":
                 ArrayGenerator<int> intGenerator = new IntArrayGenerator(count);
                 Launch(intGenerator, args);
+                break;
 
+            case "ch":
+                ArrayGenerator<char> charGenerator = new StringGenerator(count);
+                Launch(charGenerator, args);
                 break;
             
             default:
