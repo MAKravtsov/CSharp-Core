@@ -5,6 +5,7 @@ using Common.Benchmark.Columns;
 using Common.Extensions;
 using Common.Generators;
 using Common.Generators.Base;
+using DataStructures.DataStructures.SinglyLinkedList;
 
 namespace Common.Launch;
 
@@ -24,7 +25,18 @@ public abstract class LauncherBase
 
     protected virtual void ShowAlgResult<T>(object result)
     {
-        Console.WriteLine(((T[])result).ToJsonString());
+        if (result is T[] arrayResult)
+        {
+            Console.WriteLine(arrayResult.ToJsonString());
+        }
+        else if (result is SinglyLinkedList<T> singlyLinkedListResult)
+        {
+            Console.WriteLine(singlyLinkedListResult.ToJsonString());
+        }
+        else if (result is DataStructures.DataStructures.LinkedList.LinkedList<T> linkedListResult)
+        {
+            Console.WriteLine(linkedListResult.ToJsonString());
+        }
     }
 
     public void Launch(string[] args)

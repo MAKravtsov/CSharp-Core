@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searching", "Searching\Sear
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{6B973268-A265-4A72-B4DC-4CC5A09F3380}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reverse", "Reverse\Reverse.csproj", "{07C6C775-D2DB-44D5-81BC-792EB4138B10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{6B973268-A265-4A72-B4DC-4CC5A09F3380}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B973268-A265-4A72-B4DC-4CC5A09F3380}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B973268-A265-4A72-B4DC-4CC5A09F3380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C6C775-D2DB-44D5-81BC-792EB4138B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C6C775-D2DB-44D5-81BC-792EB4138B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C6C775-D2DB-44D5-81BC-792EB4138B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C6C775-D2DB-44D5-81BC-792EB4138B10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
