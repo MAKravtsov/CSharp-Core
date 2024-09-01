@@ -1,6 +1,7 @@
 using FurnitureShop.Core.Shop.Domain.Mappers;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using ProtoBuf.Grpc.ClientFactory;
 
 namespace FurnitureShop.Core.Shop.Domain.Infrastructure;
 
@@ -15,7 +16,7 @@ public static class ServiceCollectionExtensions
 
     private static void AddGrpcClients(IServiceCollection serviceCollection)
     {
-        serviceCollection.AddGrpcClient<FurnitureShop.Core.Clients.Api.Contracts.Clients.ClientsClient>(options =>
+        serviceCollection.AddCodeFirstGrpcClient<FurnitureShop.Core.Clients.Api.Contracts.Clients.IClientsService>(options =>
         {
             options.Address = new Uri("http://localhost:1111");
         });

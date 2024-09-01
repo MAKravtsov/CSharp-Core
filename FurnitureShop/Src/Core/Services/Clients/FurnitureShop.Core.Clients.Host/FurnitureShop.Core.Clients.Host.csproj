@@ -7,14 +7,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Protobuf Include="..\FurnitureShop.Core.Clients.Api.Contracts\Protos\clients.proto" GrpsService="Server" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="AutoMapper" Version="12.0.0" />
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
-        <PackageReference Include="FurnitureShop.Core.Common.Host" Version="1.0.8" />
-        <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+        <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />
     </ItemGroup>
 
     <ItemGroup>

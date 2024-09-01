@@ -1,11 +1,12 @@
 using AutoMapper;
-using FurnitureShop.Core.Shop.Api.Contracts;
-using Grpc.Core;
+using FurnitureShop.Core.Shop.Api.Contracts.Orders;
+using FurnitureShop.Core.Shop.Api.Contracts.Orders.Data;
 using MediatR;
+using ProtoBuf.Grpc;
 
 namespace FurnitureShop.Core.Shop.Host.Services;
 
-public class OrdersService : Orders.OrdersBase
+public class OrdersService : IOrdersService
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
@@ -18,7 +19,7 @@ public class OrdersService : Orders.OrdersBase
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
     
-    public override async Task<GetClientOrdersResponse> GetClientOrders(GetClientOrdersRequest request, ServerCallContext context)
+    public async ValueTask<GetClientOrdersResponse> GetClientOrdersAsync(GetClientOrdersRequest request, CallContext context = default)
     {
         var req = _mapper.Map<Domain.Orders.Requests.GetClientOrdersRequest>(request);
         var resp = await _mediator.Send(req);

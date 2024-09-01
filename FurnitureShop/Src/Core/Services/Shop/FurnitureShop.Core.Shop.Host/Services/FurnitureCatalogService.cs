@@ -1,11 +1,12 @@
 using AutoMapper;
-using FurnitureShop.Core.Shop.Api.Contracts;
+using FurnitureShop.Core.Shop.Api.Contracts.FurnitureCatalog;
+using FurnitureShop.Core.Shop.Api.Contracts.FurnitureCatalog.Data;
 using Grpc.Core;
 using MediatR;
 
 namespace FurnitureShop.Core.Shop.Host.Services;
 
-public class FurnitureCatalogService : FurnitureCatalog.FurnitureCatalogBase
+public class FurnitureCatalogService : IFurnitureCatalogService
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
@@ -18,7 +19,7 @@ public class FurnitureCatalogService : FurnitureCatalog.FurnitureCatalogBase
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    public override async Task<GetFurnitureCatalogResponse> GetFurnitureCatalog(GetFurnitureCatalogRequest request, ServerCallContext context)
+    public async ValueTask<GetFurnitureCatalogResponse> GetFurnitureCatalogAsync(GetFurnitureCatalogRequest request, ServerCallContext context = default)
     {
         var req = _mapper.Map<Domain.FurnitureCatalog.Requests.GetFurnitureCatalogRequest>(request);
         var resp = await _mediator.Send(req);

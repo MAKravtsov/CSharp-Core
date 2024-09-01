@@ -1,5 +1,5 @@
 using AutoMapper;
-using FurnitureShop.Core.Shop.Api.Contracts;
+using FurnitureShop.Core.Shop.Api.Contracts.FurnitureCatalog.Data;
 
 namespace FurnitureShop.Core.Shop.Host.Mappers;
 
@@ -9,6 +9,6 @@ public class FurnitureCatalogMapper : Profile
     {
         CreateMap<GetFurnitureCatalogRequest, Domain.FurnitureCatalog.Requests.GetFurnitureCatalogRequest>();
         CreateMap<Domain.FurnitureCatalog.Response.GetFurnitureCatalogResponse, GetFurnitureCatalogResponse>();
-        CreateMap<Domain.FurnitureCatalog.Data.Catalog, Catalog>();
+        CreateMap<Domain.FurnitureCatalog.Data.Catalog, CatalogDto>();
     }
 }

@@ -1,17 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.1</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>disables</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.0.8</PackageVersion>
+        <PackageVersion>1.0.14</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="Protos\**\*.proto">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
+        <PackageReference Include="ProtoBuf.Grpc" Version="1.0.170" />
     </ItemGroup>
 
 </Project>
