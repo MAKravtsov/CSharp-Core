@@ -1,5 +1,4 @@
 using FurnitureShop.Core.Shop.Domain.Mappers;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using ProtoBuf.Grpc.ClientFactory;
 
@@ -10,7 +9,8 @@ public static class ServiceCollectionExtensions
     public static void AddHandlers(this IServiceCollection serviceCollection)
     {
         AddGrpcClients(serviceCollection);
-        serviceCollection.AddMediatR(typeof(ServiceCollectionExtensions).Assembly);
+        serviceCollection.AddMediatR(conf => conf
+            .RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly));
         AddMappers(serviceCollection);
     }
 

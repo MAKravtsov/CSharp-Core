@@ -19,7 +19,7 @@ public class FurnitureCatalogService : IFurnitureCatalogService
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    public async ValueTask<GetFurnitureCatalogResponse> GetFurnitureCatalogAsync(GetFurnitureCatalogRequest request, ServerCallContext context = default)
+    public async ValueTask<GetFurnitureCatalogResponse> GetFurnitureCatalogAsync(GetFurnitureCatalogRequest request, ServerCallContext? context = default)
     {
         var req = _mapper.Map<Domain.FurnitureCatalog.Requests.GetFurnitureCatalogRequest>(request);
         var resp = await _mediator.Send(req);

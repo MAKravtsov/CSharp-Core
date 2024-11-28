@@ -1,22 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
     <ItemGroup>
       <ProjectReference Include="..\FurnitureShop.Core.Shop.Entities\FurnitureShop.Core.Shop.Entities.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AutoMapper" Version="12.0.0" />
-      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+      <PackageReference Include="AutoMapper" Version="$(AutoMapperVersion)" />
       <PackageReference Include="FurnitureShop.Core.Clients.Api.Contracts" Version="1.0.14" />
-      <PackageReference Include="MediatR" Version="11.1.0" />
-      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-      <PackageReference Include="protobuf-net.Grpc.ClientFactory" Version="1.1.1" />
+      <PackageReference Include="MediatR" Version="$(MediatrVersion)" />
+      <PackageReference Include="protobuf-net.Grpc.ClientFactory" Version="$(ProtobufNetVersion)" />
     </ItemGroup>
     
 </Project>

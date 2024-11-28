@@ -38,6 +38,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureShop.Core.Clients.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FurnitureShop.Core.Common.Host", "Core\Common\FurnitureShop.Core.Common.Host\FurnitureShop.Core.Common.Host.csproj", "{74A6CF81-46D6-4965-8256-4954404F903D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{9786E0B9-FEB1-4970-9EF1-B7EC13FFEC71}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		dependancies.props = dependancies.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

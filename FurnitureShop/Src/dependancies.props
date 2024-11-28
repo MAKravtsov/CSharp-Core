@@ -1,0 +1,7 @@
+﻿<Project>
+    <PropertyGroup>
+        <ProtobufNetVersion>1.2.2</ProtobufNetVersion>
+        <AutoMapperVersion>13.0.1</AutoMapperVersion>
+        <MediatrVersion>12.4.1</MediatrVersion>
+    </PropertyGroup>
+</Project>

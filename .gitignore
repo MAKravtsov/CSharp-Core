@@ -9,3 +9,4 @@ Nuget
 *.rdb
 BenchmarkDotNet.*
 .DS_Store
+global.json
