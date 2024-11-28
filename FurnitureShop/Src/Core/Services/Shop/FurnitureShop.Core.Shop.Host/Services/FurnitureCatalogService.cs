@@ -1,8 +1,8 @@
 using AutoMapper;
 using FurnitureShop.Core.Shop.Api.Contracts.FurnitureCatalog;
 using FurnitureShop.Core.Shop.Api.Contracts.FurnitureCatalog.Data;
-using Grpc.Core;
 using MediatR;
+using ProtoBuf.Grpc;
 
 namespace FurnitureShop.Core.Shop.Host.Services;
 
@@ -19,10 +19,9 @@ public class FurnitureCatalogService : IFurnitureCatalogService
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    public async ValueTask<GetFurnitureCatalogResponse> GetFurnitureCatalogAsync(GetFurnitureCatalogRequest request, ServerCallContext? context = default)
+    public async ValueTask<GetFurnitureCatalogResponse> GetFurnitureCatalogAsync(CallContext context = default)
     {
-        var req = _mapper.Map<Domain.FurnitureCatalog.Requests.GetFurnitureCatalogRequest>(request);
-        var resp = await _mediator.Send(req);
+        var resp = await _mediator.Send(new Domain.FurnitureCatalog.Requests.GetFurnitureCatalogRequest());
         return _mapper.Map<GetFurnitureCatalogResponse>(resp);
     }
 }

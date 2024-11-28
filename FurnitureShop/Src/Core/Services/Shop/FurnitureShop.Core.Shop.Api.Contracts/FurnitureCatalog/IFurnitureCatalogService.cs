@@ -1,5 +1,5 @@
 using FurnitureShop.Core.Shop.Api.Contracts.FurnitureCatalog.Data;
-using Grpc.Core;
+using ProtoBuf.Grpc;
 using ProtoBuf.Grpc.Configuration;
 
 namespace FurnitureShop.Core.Shop.Api.Contracts.FurnitureCatalog;
@@ -7,5 +7,5 @@ namespace FurnitureShop.Core.Shop.Api.Contracts.FurnitureCatalog;
 [Service]
 public interface IFurnitureCatalogService
 {
-    ValueTask<GetFurnitureCatalogResponse> GetFurnitureCatalogAsync(GetFurnitureCatalogRequest request, ServerCallContext? context = default);
+    ValueTask<GetFurnitureCatalogResponse> GetFurnitureCatalogAsync(CallContext context = default);
 }
